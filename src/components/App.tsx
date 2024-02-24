@@ -1,31 +1,37 @@
+import React from "react";
 import Categories from "./Categories";
 import Header from "./Header";
 import Sort from "./Sort";
 
 import "../scss/App.scss";
 import PizzaItem from "./PizzaItem";
-import { useState } from "react";
+import pizzas from "../assets/pizzas.json";
 
 const App: React.FC = () => {
-   const [theme, setTheme] = useState("theme-light");
+   console.log("app render");
 
    return (
-      <div className={`wrapper ${theme}`}>
+      <div className={`wrapper light-theme`}>
          <Header />
          <main className="content">
             <div className="container">
                <div className="content-top">
                   <Categories />
-                  {/* <Sort /> */}
+                  <Sort />
                </div>
-               <h2 className="content-title">Заголовок в main Все пиццы</h2>
+               <h2 className="content-title">Все пиццы</h2>
                <div className="content-items">
-                  <PizzaItem
-                     name="попидори"
-                     pizzaProps={{ dough: "qwe", size: "qwe" }}
-                     price={350}
-                     image=""
-                  />
+                  {pizzas.map((object) => (
+                     <PizzaItem
+                        name={object.title}
+                        types={object.types}
+                        sizes={object.sizes}
+                        price={object.price}
+                        image={object.imageUrl}
+                        key={object.id}
+                        // {...object} - только, если совпадают названия параметров с названиями св-в объекта (spread-оператор)
+                     />
+                  ))}
                </div>
             </div>
          </main>

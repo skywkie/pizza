@@ -1,26 +1,29 @@
+import React from "react";
 import "../scss/Categories.scss";
 
+const categories = ["All", "Meat", "Vegeteriran", "Grill", "Spicy", "Closed"];
+
 const Categories = () => {
+   console.log("categories render");
+   const [activeIndex, setActiveIndex] = React.useState(0);
+
+   const handleClickCategory = (index: number) => {
+      setActiveIndex(index);
+   };
+
    return (
-      <section className="categories align-center">
-         <div className="category-item">
-            <span className="title-item">All</span>
-         </div>
-         <div className="category-item">
-            <span className="title-item">Meat</span>
-         </div>
-         <div className="category-item">
-            <span className="title-item">Vegeterian</span>
-         </div>
-         <div className="category-item">
-            <span className="title-item">Grill</span>
-         </div>
-         <div className="category-item">
-            <span className="title-item">Spicy</span>
-         </div>
-         <div className="category-item">
-            <span className="title-item">Closed</span>
-         </div>
+      <section className="categories">
+         <ul>
+            {categories.map((name, index) => (
+               <li
+                  key={index}
+                  onClick={() => handleClickCategory(index)}
+                  className={activeIndex === index ? "active" : ""}
+               >
+                  {name}
+               </li>
+            ))}
+         </ul>
       </section>
    );
 };

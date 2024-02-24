@@ -1,0 +1,94 @@
+.pizza {
+   border: 2px solid black;
+   background-color: #fff;
+   width: 280px;
+   flex-direction: column;
+   margin-bottom: 50px;
+   margin-right: 20px;
+   padding: 10px;
+   img {
+      height: 100%;
+      width: 100%;
+   }
+   .pizza-selector {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      gap: 5px;
+      border-radius: 20px;
+      background-color: #e9e9e9;
+      ul {
+         li {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 11px;
+            transition: 0.2s;
+         }
+         .active {
+            background-color: #c8c8c8;
+         }
+      }
+   }
+   .pizza-botttom {
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      h4 {
+         font-weight: bold;
+         font-size: 1.4rem;
+      }
+      button {
+         transition: 0.3s;
+         cursor: pointer;
+         font-weight: bold;
+         border: 2px solid #fe5f1e;
+         border-radius: 20px;
+         padding: 5px 10px;
+         svg {
+            transition: 0.3s;
+            path {
+               transition: 0.3s;
+               fill: #fe5f1e;
+            }
+            margin-right: 7px;
+         }
+         span {
+            color: #fe5f1e;
+            font-size: 1.3rem;
+            font-weight: 300;
+            i {
+               display: inline-block;
+               background-color: #fe5f1e;
+               border-radius: 30px;
+               color: #fff;
+               width: 20px;
+               height: 20px;
+               font-style: normal;
+               font-size: 13px;
+               position: relative;
+               line-height: 22px;
+            }
+         }
+      }
+      button:hover {
+         background-color: #fe5f1e;
+         span {
+            color: #fff;
+            i {
+               background-color: #fff;
+               color: #fe5f1e;
+            }
+         }
+         svg {
+            path {
+               fill: #fff;
+            }
+         }
+      }
+   }
+}
