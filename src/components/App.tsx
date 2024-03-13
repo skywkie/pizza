@@ -1,11 +1,10 @@
 import React from "react";
-import Categories from "./Categories";
 import Header from "./Header";
-import Sort from "./Sort";
-
+import Home from "../pages/Home";
+import NotFound from "../pages/NotFound";
 import "../scss/App.scss";
-import PizzaItem from "./PizzaItem";
-import pizzas from "../assets/pizzas.json";
+import { Routes, Route } from "react-router-dom";
+import Cart from "../pages/Cart";
 
 const App: React.FC = () => {
    console.log("app render");
@@ -15,24 +14,12 @@ const App: React.FC = () => {
          <Header />
          <main className="content">
             <div className="container">
-               <div className="content-top">
-                  <Categories />
-                  <Sort />
-               </div>
-               <h2 className="content-title">Все пиццы</h2>
-               <div className="content-items">
-                  {pizzas.map((object) => (
-                     <PizzaItem
-                        name={object.title}
-                        types={object.types}
-                        sizes={object.sizes}
-                        price={object.price}
-                        image={object.imageUrl}
-                        key={object.id}
-                        // {...object} - только, если совпадают названия параметров с названиями св-в объекта (spread-оператор)
-                     />
-                  ))}
-               </div>
+               <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="*" element={<NotFound />} />{" "}
+                  {/* * - если ни один route не подошел */}
+               </Routes>
             </div>
          </main>
          <footer></footer>

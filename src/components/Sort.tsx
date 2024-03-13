@@ -1,7 +1,12 @@
+import { useEffect, useState } from "react";
 import "../scss/Sort.scss";
 
 const Sort = () => {
-	console.log("sort render");
+   console.log("sort render");
+   const [open, setOpen] = useState(false);
+   const [activeSort, setActiveSort] = useState(0);
+
+   const sortList = ["популярности", "цене", "алфавиту"];
    return (
       <div className="sort align-center">
          <div className="sort-label">
@@ -18,15 +23,28 @@ const Sort = () => {
                />
             </svg>
             <b>Сортировка по:</b>
-            <span>популярности</span>
+            <span id="sort" onClick={() => setOpen(!open)}>
+               {sortList[activeSort]}
+            </span>
          </div>
-         <div className="sort-popular">
-            <ul>
-               <li className="active">популярности</li>
-               <li>цене</li>
-               <li>алфавиту</li>
-            </ul>
-         </div>
+         {open && (
+            <div className="sort-menu">
+               <ul>
+                  {sortList.map((name, index) => (
+                     <li
+                        key={name}
+                        onClick={() => {
+                           setActiveSort(index);
+                           setOpen(false);
+                        }}
+                        className={activeSort === index ? "active" : ""}
+                     >
+                        {name}
+                     </li>
+                  ))}
+               </ul>
+            </div>
+         )}
       </div>
    );
 };
