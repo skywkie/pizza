@@ -40,7 +40,7 @@ const Home = () => {
             <Categories />
             <Sort />
          </div>
-         <h2 className="content-title">Все пиццы</h2>
+         <h2 className="content-title">All pizzas</h2>
          <div className="content-items">
             {items.map((obj) => (
                <PizzaItem

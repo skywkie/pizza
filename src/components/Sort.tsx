@@ -23,7 +23,9 @@ const Sort = () => {
                />
             </svg>
             <b>Сортировка по:</b>
-            <span onClick={() => setOpen(!open)}>{sortList[activeSort]}</span>
+            <span id="sort" onClick={() => setOpen(!open)}>
+               {sortList[activeSort]}
+            </span>
          </div>
          {open && (
             <div className="sort-menu">

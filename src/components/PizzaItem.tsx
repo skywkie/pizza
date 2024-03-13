@@ -5,8 +5,8 @@ interface IPizzaItem {
    name: string;
    types: number[];
    sizes: number[];
-   price?: number;
-   image?: string;
+   price: number;
+   image: string;
 }
 
 const PizzaItem = ({ name, types, sizes, price, image }: IPizzaItem) => {
@@ -22,13 +22,13 @@ const PizzaItem = ({ name, types, sizes, price, image }: IPizzaItem) => {
          <h2>{name}</h2>
          <div className="pizza-selector">
             <ul className="align-center">
-               {types.map((typeId) => (
+               {types.map((id) => (
                   <li
-                     onClick={() => setActiveType(typeId)}
-                     key={typeId}
-                     className={activeType === typeId ? "active" : ""}
+                     onClick={() => setActiveType(id)}
+                     key={id}
+                     className={activeType === id ? "active" : ""}
                   >
-                     {pizzaTypes[typeId]}
+                     {pizzaTypes[id]}
                   </li>
                ))}
             </ul>
@@ -45,7 +45,7 @@ const PizzaItem = ({ name, types, sizes, price, image }: IPizzaItem) => {
             </ul>
          </div>
          <div className="pizza-botttom">
-            <h4>price: {price}$</h4>
+            <h4>{price}$</h4>
             <button className="align-center">
                <svg
                   width="12"

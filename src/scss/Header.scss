@@ -1,5 +1,5 @@
 header {
-   background-color: aqua;
+   background-color: #fff;
    width: 100%;
    height: 10%;
    top: 0;
@@ -11,7 +11,7 @@ header {
       cursor: pointer;
       display: flex;
       align-items: center;
-      background-color: yellow;
+      background-color: #fff;
       min-width: 300px;
       gap: 10px;
       padding: 15px;
@@ -31,7 +31,7 @@ header {
       }
    }
    .container-cart {
-      background-color: yellow;
+      background-color: #fff;
       width: 20%;
       a {
          width: 100%;
@@ -40,9 +40,12 @@ header {
       .cart {
          width: 80%;
          height: 60%;
-         background-color: green;
-         border: 2px solid black;
+         background-color: rgb(255, 123, 0);
          border-radius: 100px;
+         transition: 0.3s;
+         &:hover {
+            background-color: rgb(247, 171, 101);
+         }
          .money-btn {
             height: 100%;
             width: calc(50% - 12.5px);
