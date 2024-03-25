@@ -3,13 +3,8 @@ import "../scss/Categories.scss";
 
 const categories = ["All", "Meat", "Vegeteriran", "Grill", "Spicy", "Closed"];
 
-const Categories = () => {
+const Categories = ({ categoryId, onChangeCategory }: any) => {
    console.log("categories render");
-   const [activeIndex, setActiveIndex] = React.useState(0);
-
-   const handleClickCategory = (index: number) => {
-      setActiveIndex(index);
-   };
 
    return (
       <section className="categories">
@@ -17,8 +12,8 @@ const Categories = () => {
             {categories.map((name, index) => (
                <li
                   key={index}
-                  onClick={() => handleClickCategory(index)}
-                  className={activeIndex === index ? "active" : ""}
+                  onClick={() => onChangeCategory(index)}
+                  className={categoryId === index ? "active" : ""}
                >
                   {name}
                </li>
