@@ -8,10 +8,11 @@ import Cart from "../pages/Cart";
 
 const App: React.FC = () => {
    console.log("app render");
+   const [searchValue, setSearchValue] = React.useState("");
 
    return (
       <div className={`wrapper light-theme`}>
-         <Header />
+         <Header searchValue={searchValue} setsSearchValue={setSearchValue} />
          <main className="content">
             <div className="container">
                <Routes>

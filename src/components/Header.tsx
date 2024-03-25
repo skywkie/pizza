@@ -1,8 +1,9 @@
 import "../scss/Header.scss";
 import pizzaLogo from "../assets/img/pizza-logo.svg";
 import { Link } from "react-router-dom";
+import Search from "./Search";
 
-const Header = () => {
+const Header = ({ searchValue, setsSearchValue }: any) => {
    console.log("header render");
    return (
       <header>
@@ -15,6 +16,7 @@ const Header = () => {
                </div>
             </Link>
          </div>
+         <Search />
          <div className="container-cart align-center">
             <Link className="align-center" to={"/cart"}>
                <div className="cart align-center">
